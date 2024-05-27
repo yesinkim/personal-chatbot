@@ -1,8 +1,0 @@
-streamlit
-google-cloud-documentai
-google-api-core
-google-auth
-google-generativeai
-protobuf
-google.cloud
-google.cloud.core
