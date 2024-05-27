@@ -6,7 +6,7 @@ import os
 import json
 
 # 페이지 구성 설정
-st.set_page_config(page_title="PDF/이미지 요약 시스템", page_icon="📄", layout="wide")
+st.set_page_config(page_title="OCR", page_icon="📄", layout="wide")
 
 # Google Cloud 자격 증명 환경 변수 설정
 config = st.secrets
