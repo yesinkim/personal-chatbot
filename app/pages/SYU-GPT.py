@@ -145,9 +145,6 @@ def main():
         st.caption('데이터를 주기적으로 업데이트 중입니다.')
         st.caption('삼육대학교 재학생이라면 사용해보세요! 😊')
         st.caption(' ')
-        st.caption('사용하시는데 불편한 점이 있으면 아래 사용 가이드를 참고해보세요!')
-        st.caption(' ')
-        st.page_link("pages/guide.py", label="사용 가이드 바로가기", help="사용 가이드로 이동합니다.", icon="▶")
         st.caption(' ')
         st.markdown('**안녕! 이라고 인사해보세요 ✋✋**')
     # 사이드바
@@ -180,9 +177,10 @@ def main():
                 with st.chat_message("SYU-GPT", avatar="photo/Logo.png"):
                     st.markdown(response)
                     st.caption(' ')
-                    st.caption('사용하시는데 불편한 점이 있으면 아래 사용 가이드를 참고해보세요!')
-                    st.caption(' ')
-                    st.page_link("pages/guide.py", label="사용 가이드 바로가기", help="사용 가이드로 이동합니다.", icon="▶")
+                    if st.button("홈 화면으로 이동하기"):
+                        st.session_state.value = "Home"
+                        st.session_state.icon = "🏠"
+                        st.rerun()
                 st.session_state.messages.append({"role": "SYU-GPT", "content": response})
         except Exception as e:
             st.error("에러가 발생했습니다: {}".format(e))
