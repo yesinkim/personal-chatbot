@@ -22,7 +22,7 @@ processor_version_id = config.google_cloud.processor_version_id
 field_mask = "text,entities,pages.pageNumber"  # 반환받을 필드 선택 (옵션)
 
 # Google API 키 읽기
-api_key = config.google_api.api_key
+api_key = config.ocr.api_key
 
 
 # 모델 로드 및 채팅 세션 시작
