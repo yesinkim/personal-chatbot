@@ -1,13 +1,12 @@
 #AIchatBot.py
 import google.generativeai as genai
 import streamlit as st
-import time as tm
 
 st.set_page_config(layout="wide",
                    page_title="음식 추천",
                    page_icon=":fork_and_knife:")
 
-genai.configure(api_key="")
+genai.configure(api_key=st.secrets["SO_API_KEY"])
 
 # Set up the model
 generation_config = {
