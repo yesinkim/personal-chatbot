@@ -1,5 +1,3 @@
-elastic-transport
-elasticsearch
 faiss-cpu
 google-ai-generativelanguage
 google-api-core

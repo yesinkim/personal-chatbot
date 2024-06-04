@@ -15,10 +15,10 @@ VECTOR_STORE_PATH = "data/vector_store.faiss"
 def setup_environment():
     os.environ["LANGCHAIN_TRACING_V2"] = "true"
     os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
-    os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGSMITH_API_TOKEN")
+    os.environ["LANGCHAIN_API_KEY"] = st.secrets["syu-gpt"]["LANGSMITH_API_TOKEN"]
     os.environ["LANGCHAIN_PROJECT"] = "SYU-GPT"
-    os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-    os.environ["SERPER_API_KEY"] = os.getenv("SERPER_API_KEY")
+    os.environ["OPENAI_API_KEY"] = st.secrets["syu-gpt"]["OPENAI_API_KEY"]
+    os.environ["SERPER_API_KEY"] = st.secrets["syu-gpt"]["SERPER_API_KEY"]
 
 # 문서 처리 준비
 @st.cache_resource
