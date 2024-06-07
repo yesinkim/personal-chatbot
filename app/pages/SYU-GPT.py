@@ -126,7 +126,7 @@ def main():
     st.set_page_config(
         page_title="SYU-GPT",
         # page_icon="😃",
-        page_icon="photo/Logo.png",
+        page_icon="data/photo/Logo.png",
         layout="wide",
         initial_sidebar_state="auto",
         menu_items={
@@ -148,7 +148,7 @@ def main():
         st.caption(' ')
         st.markdown('**안녕! 이라고 인사해보세요 ✋✋**')
     # 사이드바
-    st.sidebar.image("photo/syugptLogo.png")
+    st.sidebar.image("data/photo/syugptLogo.png")
     hide_img_fs = '''
     <style>
     button[title="View fullscreen"]{
@@ -174,7 +174,7 @@ def main():
                 with st.chat_message("user", avatar="🧃"):
                     st.markdown(user_input)
                 st.session_state.messages.append({"role": "user", "content": user_input})
-                with st.chat_message("SYU-GPT", avatar="photo/Logo.png"):
+                with st.chat_message("SYU-GPT", avatar="data/photo/Logo.png"):
                     st.markdown(response)
                     st.caption(' ')
                     if st.button("홈 화면으로 이동하기"):
