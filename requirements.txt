@@ -2,6 +2,9 @@ faiss-cpu
 google-ai-generativelanguage
 google-api-core
 google-api-python-client
+google.cloud
+google.cloud.core
+google-cloud-documentai
 google-auth
 google-auth-httplib2
 google-generativeai
@@ -14,7 +17,7 @@ langchain-google-genai
 langchain-openai
 langchain-text-splitters
 langchainhub
-langdetect
+langdetec
 langsmith
 matplotlib
 matplotlib-inline
@@ -26,6 +29,7 @@ pandas
 platformdirs
 prometheus_client
 prompt-toolkit
+protobuf
 pypdf
 python-dotenv
 python-iso639
@@ -35,3 +39,4 @@ types-urllib3
 yarl
 zipp
 sentence-transformers
+streamlit
