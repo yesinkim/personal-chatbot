@@ -18,7 +18,7 @@ langchain-google-genai
 langchain-openai
 langchain-text-splitters
 langchainhub
-langdetec
+langdetect
 langsmith
 matplotlib
 matplotlib-inline
