@@ -12,5 +12,5 @@
 - **멘토**: [김예신](https://github.com/yesinkim)
 - **멘티** 
     - [김소원](https://github.com/shine515): [음식 추천 추천](https://syu-chatbot.streamlit.app/음식추천)
-    - [백동렬](https://github.com/think0507): [문서 및 이미지 요약](https://syu-chatbot.streamlit.app/OCR)
+    - [백동렬](https://github.com/think0507): [문서 및 이미지 요약](https://syu-chatbot.streamlit.app/%EB%AC%B8%EC%84%9C%20%EB%B0%8F%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%9A%94%EC%95%BD)
     - [양이찬](https://github.com/y2chan): [삼육대학교 GPT 챗봇](https://syu-chatbot.streamlit.app/SYU-GPT)  

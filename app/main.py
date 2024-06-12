@@ -143,7 +143,7 @@ st.markdown(
         <div class='stTeamMember'>
             <h4>백동렬</h4>
             <a href="https://github.com/think0507"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://syu-chatbot.streamlit.app/OCR" target="_self"><i class="fas fa-link"></i> 문서 및 이미지 요약 챗봇</a>
+            <a href="https://syu-chatbot.streamlit.app/%EB%AC%B8%EC%84%9C%20%EB%B0%8F%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%9A%94%EC%95%BD" target="_self"><i class="fas fa-link"></i> 문서 및 이미지 요약 챗봇</a>
         </div>
         <div class='stTeamMember'>
             <h4>양이찬</h4>
