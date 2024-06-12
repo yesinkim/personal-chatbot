@@ -1,3 +1,4 @@
+streamlit
 faiss-cpu
 google-ai-generativelanguage
 google-api-core
@@ -17,7 +18,7 @@ langchain-google-genai
 langchain-openai
 langchain-text-splitters
 langchainhub
-langdetec
+langdetect
 langsmith
 matplotlib
 matplotlib-inline
@@ -39,4 +40,4 @@ types-urllib3
 yarl
 zipp
 sentence-transformers
-streamlit
+st-pages
