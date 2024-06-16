@@ -1,6 +1,3 @@
-import json
-import os
-
 import google.generativeai as genai
 import streamlit as st
 from google.api_core.client_options import ClientOptions
@@ -19,17 +16,18 @@ credentials = service_account.Credentials.from_service_account_info(
 # Google Cloud 설정 읽기
 project_id = credentials.project_id
 location = config["ocr"]["location"]
-processor_id = config["ocr"].processor_id
-processor_version_id = config["ocr"].processor_version_id
+processor_id = config["ocr"]["processor_id"]
+processor_version_id = config["ocr"]["processor_version_id"]
 field_mask = "text,entities,pages.pageNumber"  # 반환받을 필드 선택 (옵션)
 
 # Google API 키 읽기
-api_key = config.ocr.GOOGLE_API_KEY
+API_KEY = config["ocr"]["GOOGLE_API_KEY"]
 
 
 # 모델 로드 및 채팅 세션 시작
 @st.cache_resource
 def load_model():
+    genai.configure(api_key=API_KEY)
     return genai.GenerativeModel("gemini-pro")
 
 
@@ -60,7 +58,9 @@ def upload_page():
 
     def process_document(uploaded_file, mime_type):
         opts = ClientOptions(api_endpoint=f"{location}-documentai.googleapis.com")
-        client = documentai.DocumentProcessorServiceClient(credentials=credentials, client_options=opts)
+        client = documentai.DocumentProcessorServiceClient(
+            credentials=credentials, client_options=opts
+        )
         name = client.processor_version_path(
             project_id, location, processor_id, processor_version_id
         )
