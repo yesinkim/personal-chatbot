@@ -21,7 +21,7 @@ def setup_environment():
     os.environ["LANGCHAIN_PROJECT"] = "SYU-GPT"
     os.environ["OPENAI_API_KEY"] = st.secrets["syu-gpt"]["OPENAI_API_KEY"]
     os.environ["SERPER_API_KEY"] = st.secrets["syu-gpt"]["SERPER_API_KEY"]
-
+    os.environ["SYU_GPT_KEY"] = st.secrets["syu-gpt"]["GOOGLE_API_KEY"]
 
 # 문서 처리 준비
 @st.cache_resource
@@ -115,7 +115,12 @@ def generate_response(user_input):
         Question: {question}
         """
         prompt = ChatPromptTemplate.from_template(template)
-        llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0, max_tokens=2048)
+        llm = ChatGoogleGenerativeAI(
+            model="gemini-pro",
+            temperature=0,
+            max_tokens=2048,
+            google_api_key=os.environ.get("SYU_GPT_KEY")
+        )
         chain = (
             RunnableMap(
                 {
