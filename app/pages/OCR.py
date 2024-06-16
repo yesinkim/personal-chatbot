@@ -5,21 +5,22 @@ import google.generativeai as genai
 import streamlit as st
 from google.api_core.client_options import ClientOptions
 from google.cloud import documentai
+from google.oauth2 import service_account
 
 # 페이지 구성 설정
 st.set_page_config(page_title="OCR", page_icon="📄", layout="wide")
 
 # Google Cloud 자격 증명 환경 변수 설정
 config = st.secrets
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/tmp/credentials.json"
-with open(os.environ["GOOGLE_APPLICATION_CREDENTIALS"], "w") as f:
-    json.dump(json.loads(config["google_cloud"]["credentials"]), f)
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["google_cloud"]
+)
 
 # Google Cloud 설정 읽기
-project_id = config.google_cloud.project_id
-location = config.google_cloud.location
-processor_id = config.google_cloud.processor_id
-processor_version_id = config.google_cloud.processor_version_id
+project_id = credentials.project_id
+location = config["ocr"]["location"]
+processor_id = config["ocr"].processor_id
+processor_version_id = config["ocr"].processor_version_id
 field_mask = "text,entities,pages.pageNumber"  # 반환받을 필드 선택 (옵션)
 
 # Google API 키 읽기
@@ -59,7 +60,7 @@ def upload_page():
 
     def process_document(uploaded_file, mime_type):
         opts = ClientOptions(api_endpoint=f"{location}-documentai.googleapis.com")
-        client = documentai.DocumentProcessorServiceClient(client_options=opts)
+        client = documentai.DocumentProcessorServiceClient(credentials=credentials, client_options=opts)
         name = client.processor_version_path(
             project_id, location, processor_id, processor_version_id
         )
