@@ -22,7 +22,6 @@ def setup_environment():
     os.environ["OPENAI_API_KEY"] = st.secrets["syu-gpt"]["OPENAI_API_KEY"]
     os.environ["SERPER_API_KEY"] = st.secrets["syu-gpt"]["SERPER_API_KEY"]
     os.environ["SYU_GPT_KEY"] = st.secrets["syu-gpt"]["GOOGLE_API_KEY"]
-
 # 문서 처리 준비
 @st.cache_resource
 def generate_response(user_input):
@@ -122,23 +121,22 @@ def generate_response(user_input):
             google_api_key=os.environ.get("SYU_GPT_KEY")
         )
         chain = (
-            RunnableMap(
-                {
-                    "context": lambda x: retriever.get_relevant_documents(
-                        x["question"]
-                    ),
-                    "question": lambda x: x["question"],
-                }
-            )
-            | prompt
-            | llm
+                RunnableMap(
+                    {
+                        "context": lambda x: retriever.get_relevant_documents(
+                            x["question"]
+                        ),
+                        "question": lambda x: x["question"],
+                    }
+                )
+                | prompt
+                | llm
         )
         response = chain.invoke({"question": user_input}).content
         return response
     except Exception as e:
         logging.error(f"An error occurred: {str(e)}")
         return f"오류가 발생했습니다: {str(e)}"
-
 
 def main():
     st.set_page_config(
@@ -189,8 +187,11 @@ def main():
         label="GaBean",
         help="개발자의 또 다른 웹 사이트로 이동합니다",
     )
-    if "chat_session" not in st.session_state:
+
+    # st.session_state.messages 초기화
+    if "messages" not in st.session_state:
         st.session_state.messages = []
+
     if user_input := st.chat_input("질문을 입력하세요."):
         info_placeholder.empty()
         try:
