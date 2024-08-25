@@ -40,4 +40,4 @@ types-urllib3
 yarl
 zipp
 sentence-transformers
-st-pages==0.4.5
+st-pages==0.5.0
